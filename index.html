@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Show Up. Cash Out. Reign. | Web Edition</title>
+    <meta
+      name="description"
+      content="A password-protected web edition of Show Up. Cash Out. Reign. with chapter navigation, salary snapshots, roadmap cards, and a direct PDF download."
+    >
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="progress-bar" id="progressBar"></div>
+
+      <div class="password-gate" id="passwordGate">
+        <div class="gate-panel">
+          <p class="eyebrow">Reader Access</p>
+          <h1>Show Up. Cash Out. Reign.</h1>
+          <p class="gate-copy">
+            This web edition opens with a reader password. Enter the access key shared by the publisher
+            to unlock the guide and download the PDF.
+          </p>
+          <form class="gate-form" id="gateForm">
+            <label for="passwordInput" class="sr-only">Document password</label>
+            <input
+              id="passwordInput"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Enter document password"
+              required
+            >
+            <button type="submit">Unlock Reader</button>
+          </form>
+          <p class="gate-hint">Tip: once unlocked, access stays open for this browser session.</p>
+          <p class="gate-error" id="gateError" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <header class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Enhanced Web Edition</p>
+          <h1 id="bookTitle"></h1>
+          <p class="hero-subtitle" id="bookSubtitle"></p>
+          <p class="hero-proof" id="bookProof"></p>
+
+          <div class="hero-actions">
+            <a class="button primary" id="downloadPdf" href="#" download>Download PDF</a>
+            <button class="button secondary" id="printReader" type="button">Print Web Edition</button>
+            <a class="button ghost" href="#readerStart">Start Reading</a>
+          </div>
+
+          <div class="stat-grid" id="stats"></div>
+          <ul class="callout-list" id="callouts"></ul>
+        </div>
+
+        <div class="hero-visual">
+          <div class="cover-frame">
+            <img id="coverImage" alt="Show Up. Cash Out. Reign. cover preview">
+          </div>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="sidebar">
+          <section class="sidebar-card">
+            <p class="eyebrow">Jump To</p>
+            <nav id="chapterNav" class="chapter-nav" aria-label="Chapter navigation"></nav>
+          </section>
+
+          <section class="sidebar-card">
+            <p class="eyebrow">Beans To Dollars</p>
+            <label class="calc-label" for="beanInput">Bean total</label>
+            <input id="beanInput" class="bean-input" type="number" min="0" step="100" value="21000">
+            <p class="calc-result" id="beanResult"></p>
+            <p class="calc-note">Estimate based on the book's stated 210 Beans = $1 USD rate.</p>
+          </section>
+        </aside>
+
+        <div class="content-stack">
+          <section class="panel" id="readerStart">
+            <div class="panel-header">
+              <p class="eyebrow">Inside The Blueprint</p>
+              <h2>Chapter Guide</h2>
+            </div>
+            <div class="chapter-grid" id="chapterCards"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <p class="eyebrow">Official Structure</p>
+              <h2>Salary Ladder Snapshot</h2>
+            </div>
+            <div class="table-wrap">
+              <table class="salary-table" id="salaryTable"></table>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <p class="eyebrow">Growth Plan</p>
+              <h2>6-Month Queen's Roadmap</h2>
+            </div>
+            <div class="roadmap-grid" id="roadmap"></div>
+          </section>
+
+          <section class="panel reader-panel">
+            <div class="panel-header">
+              <p class="eyebrow">Full Ebook</p>
+              <h2>Reader View</h2>
+            </div>
+            <p class="reader-intro">
+              Every page below is rendered from the original PDF so the web edition keeps the look and flow of the
+              source ebook while making it easier to open, share, and download.
+            </p>
+            <div class="page-gallery" id="pageGallery"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="./book-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
